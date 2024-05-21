@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# Ce script permet de restaurer les données des sauvegardes complètes
-# Il est très important de le placer dans /home/mugen/archives car c est l endroit où sont stockées toutes les anciennes sauvegardes
+### Ce script permet de restaurer les données des sauvegardes complètes
 
 # Nom du répertoire où sont stockées toutes les anciennes sauvegardes
 backup_dir="/home/mugen/archives"
@@ -32,10 +31,10 @@ if [ -d "$restore_dir" ]; then
         echo "Restauration en cours..."
 
         # Restauration de la sauvegarde complète
-        rsync -av --delete --delete-excluded "$restore_dir/b2d/" jin@192.168.99.134:/home/b2d
-        rsync -av --delete --delete-excluded "$restore_dir/jin/" jin@192.168.99.134:/home/jin
-        rsync -av --delete --delete-excluded "$restore_dir/nginx/" jin@192.168.99.134:/etc/nginx
-        rsync -av --delete --delete-excluded "$restore_dir/wordpress/" jin@192.168.99.134:/var/www/html/wordpress
+        rsync -av --delete --delete-excluded "$restore_dir/b2d" jin@192.168.99.134:/home/b2d
+        rsync -av --delete --delete-excluded "$restore_dir/jin" jin@192.168.99.134:/home/jin
+        rsync -av --delete --delete-excluded "$restore_dir/nginx" jin@192.168.99.134:/etc/nginx
+        rsync -av --delete --delete-excluded "$restore_dir/wordpress" jin@192.168.99.134:/var/www/html/wordpress
 
         echo "La restauration complète est terminée !"
     else
